@@ -18,7 +18,7 @@ const RenderCampsite = ({ campsite }) => {
             </Text>
           </View>
         </Card.Image>
-        <Text style={{ margin: 20 }}>{campsite.description}</Text>
+        <Text style={{ margin: 20 }}> {campsite.description}</Text>
       </Card>
     );
   }
