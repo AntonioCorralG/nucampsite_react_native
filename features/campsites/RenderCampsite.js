@@ -11,9 +11,9 @@ const RenderCampsite = ({ campsite }) => {
               style={{
                 color: "white",
                 textAlign: "center",
-                fontSize: 20,
+                fontSize: 20
               }}
-            >
+            > 
               {campsite.name}
             </Text>
           </View>
@@ -22,7 +22,7 @@ const RenderCampsite = ({ campsite }) => {
       </Card>
     );
   }
-  return <View />;
+  return <View />
 };
 
 export default RenderCampsite;

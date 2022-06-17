@@ -11,8 +11,8 @@ const DirectoryScreen = (props) => {
           <ListItem.Subtitle>{campsite.description}</ListItem.Subtitle>
         </ListItem.Content>
       </ListItem>
-    );
-  };
+    )
+  }
 
   return (
     <FlatList
@@ -20,7 +20,7 @@ const DirectoryScreen = (props) => {
       renderItem={renderDirectoryItem}
       keyExtractor={(item) => item.id.toString()}
     />
-  );
-};
+  )
+}
 
 export default DirectoryScreen;
