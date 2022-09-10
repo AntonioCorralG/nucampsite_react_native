@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { toggleFavorite } from "../features/favorites/favoritesSlice";
 import { useState } from "react";
 import { Rating, Input } from "react-native-elements";
-import { postComment } from '../features/comments/commentsSlice'
+import { postComment } from "../features/comments/commentsSlice";
 
 const CampsiteInfoScreen = ({ route }) => {
   const { campsite } = route.params;
@@ -38,11 +38,11 @@ const CampsiteInfoScreen = ({ route }) => {
       <View style={styles.commentItem}>
         <Text style={{ fontSize: 14 }}>{item.text}</Text>
         <Rating
-            startingValue={item.rating}
-            imageSize={10}
-            style={{ alignItems: 'flex-start', paddingVertical: '5%' }}
-            readonly 
-          />
+          startingValue={item.rating}
+          imageSize={10}
+          style={{ alignItems: "flex-start", paddingVertical: "5%" }}
+          readonly
+        />
         <Text
           style={{ fontSize: 12 }}
         >{`-- ${item.author}, ${item.date}`}</Text>
@@ -91,24 +91,22 @@ const CampsiteInfoScreen = ({ route }) => {
             leftIconContainerStyle={{ paddingRight: 10 }}
             onChangeText={(author) => setAuthor(author)}
             value={author}
-          >
-          </Input>
+          ></Input>
           <Input
             placeholder="Comment"
             leftIcon={{ type: "font-awesome", name: "comment-o" }}
             leftIconContainerStyle={{ paddingRight: 10 }}
             onChangeText={(text) => setText(text)}
             value={text}
-          >
-          </Input>
+          ></Input>
           <View style={{ margin: 10 }}>
-            <Button 
-            title="Submit"
-            color="#5637DD"
-            onPress={() => {
-              handleSubmit();
-              resetForm();
-            }}
+            <Button
+              title="Submit"
+              color="#5637DD"
+              onPress={() => {
+                handleSubmit();
+                resetForm();
+              }}
             />
           </View>
           <View style={{ margin: 10 }}>
