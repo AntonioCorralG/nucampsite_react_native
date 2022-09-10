@@ -4,6 +4,7 @@ import CampsiteInfoScreen from "./CampsiteInfoScreen";
 import DirectoryScreen from "./DirectoryScreen";
 import AboutScreen from "./AboutScreen";
 import ContactScreen from "./ContactScreen";
+import ReservationScreen from "./ReservationScreen";
 import { createStackNavigator } from "@react-navigation/stack";
 import {
   createDrawerNavigator,
@@ -132,6 +133,29 @@ const ContactNavigator = () => {
     </Stack.Navigator>
   );
 };
+
+const ReservationNavigator = () => {
+  const Stack = createStackNavigator();
+  return (
+    <Stack.Navigator screenOptions={screenOptions}>
+      <Stack.Screen
+        name="Reservation"
+        component={ReservationScreen}
+        options={({ navigation }) => ({
+          title: "Reservation Search",
+          headerLeft: () => (
+            <Icon
+              name="tree"
+              type="font-awesome"
+              iconStyle={styles.stackIcon}
+              onPress={() => navigation.toggleDrawer()}
+            />
+          ),
+        })}
+      />
+    </Stack.Navigator>
+  );
+};
 const CustomDrawerContent = (props) => (
   <DrawerContentScrollView {...props}>
     <View style={styles.drawerHeader}>
@@ -153,8 +177,7 @@ const Main = () => {
     dispatch(fetchPromotions());
     dispatch(fetchPartners());
     dispatch(fetchComments());
-
-  }, [dispatch])
+  }, [dispatch]);
   return (
     <View
       style={{
@@ -191,6 +214,22 @@ const Main = () => {
             drawerIcon: ({ color }) => (
               <Icon
                 name="list"
+                type="font-awesome"
+                size={24}
+                iconStyle={{ width: 24 }}
+                color={color}
+              />
+            ),
+          }}
+        />
+        <Drawer.Screen
+          name="ReserveCampsite"
+          component={ReservationNavigator}
+          options={{
+            title: "Reserve Campsite",
+            drawerIcon: ({ color }) => (
+              <Icon
+                name="tree"
                 type="font-awesome"
                 size={24}
                 iconStyle={{ width: 24 }}
