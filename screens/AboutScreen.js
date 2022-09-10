@@ -3,6 +3,7 @@ import { ScrollView } from "react-native-gesture-handler";
 import { useSelector } from "react-redux";
 import { baseUrl } from "../shared/baseUrl";
 import Loading from '../components/loadingComponent'
+import * as Animatable from 'react-native-animatable';
 
 const CampsiteAboutScreen = () => {
     const partners = useSelector((state) => state.partners)
@@ -22,12 +23,18 @@ const CampsiteAboutScreen = () => {
   if (partners.errMess) {
     return (
       <ScrollView>
+        <Animatable.View
+          animation='fadeInDown'
+          duration= { 2000 }
+          delay={ 1000 }
+        >
       <Mission/>
       <Card>
           <Card.Title>Community Partners</Card.Title>
           <Card.Divider/>
           <Text>{ partners.errMess } </Text>
       </Card>
+      </Animatable.View>
     </ScrollView>
     )
   }
@@ -35,6 +42,11 @@ const CampsiteAboutScreen = () => {
   return (
 
   <ScrollView>
+        <Animatable.View
+          animation='fadeInDown'
+          duration= { 2000 }
+          delay={ 1000 }
+        >
     <Mission/>
     <Card>
         <Card.Title>Community Partners</Card.Title>
@@ -53,6 +65,7 @@ const CampsiteAboutScreen = () => {
         })}
 
     </Card>
+    </Animatable.View>
   </ScrollView>)
 };
 
