@@ -14,7 +14,7 @@ export const postComment = createAsyncThunk(
     async (payload, {dispatch, getState}) => {
         setTimeout(() => {
             const { comments } = getState();
-            payload.date = new Date().toString();
+            payload.date = new Date().toDateString("en-US");
             payload.id = comments.commentsArray.length;
             dispatch(addComment(payload))
         }, 2000)

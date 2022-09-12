@@ -8,6 +8,7 @@ const RenderCampsite = (props) => {
   const { campsite } = props;
 
   const view = useRef();
+  const isRightSwipe = ({ dx }) => dx > 200 
 
   const isLeftSwipe = ({ dx }) => dx < -200;
   const panResponder = PanResponder.create({
@@ -17,7 +18,11 @@ const RenderCampsite = (props) => {
         .rubberBand(1000)
         .then((endState) => console.log(endState.finished ? 'finished' : 'canceled')
         );
+
     },
+
+
+
     onPanResponderEnd: (e, gestureState) => {
       console.log("pan responder end", gestureState);
       if (isLeftSwipe(gestureState)) {
@@ -40,6 +45,8 @@ const RenderCampsite = (props) => {
           ],
           { cancelable: false }
         );
+      } else if (isRightSwipe(gestureState)) {
+          props.onShowModal()
       }
     },
   });
@@ -69,7 +76,7 @@ const RenderCampsite = (props) => {
               reverse
               onPress={() =>
                 props.isFavorite
-                  ? console.log("Arlready set as favoorite")
+                  ? console.log("Arlready set as favorite")
                   : props.markFavorite()
               }
             />
